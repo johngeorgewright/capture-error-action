@@ -1,0 +1,61 @@
+{
+  "name": "@johngeorgewright/ts-module",
+  "version": "1.0.0",
+  "description": "Compose and react upon redux actions",
+  "private": true,
+  "main": "dist/ts-module.js",
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "postbuild": "rimraf 'dist/**/?(__tests__|__mocks__|__setup__|*.test.*)'",
+    "clean": "rimraf dist",
+    "start": "concurrently npm:start:*",
+    "start:build": "tsc --watch --preserveWatchOutput",
+    "start:test": "jest src --watch",
+    "test": "jest src",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johngeorgewright/ts-module.git"
+  },
+  "keywords": [],
+  "author": "John Wright <johngeorge.wright@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johngeorgewright/ts-module/issues"
+  },
+  "homepage": "https://github.com/johngeorgewright/ts-module#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.2.1",
+    "@semantic-release/npm": "^7.1.0",
+    "@semantic-release/release-notes-generator": "^9.0.2",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.37",
+    "commitizen": "^4.2.3",
+    "concurrently": "^6.0.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^17.4.2",
+    "ts-jest": "^26.5.4",
+    "typescript": "^4.2.3"
+  },
+  "lint-staged": {
+    "*.{md,json,js,jsx,ts,tsx,yml,yaml}": [
+      "prettier --ignore-path .gitignore --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
